@@ -14,6 +14,11 @@ namespace EmployeeWebMySQL.Data
         {
         }
 
-        public DbSet<EmployeeWebMySQL.Models.Employee> Employee { get; set; }
+        public DbSet<Employee> Employee { get; set; }
+
+        protected override void OnModelCreating ( ModelBuilder modelBuilder )
+        {
+            modelBuilder.Entity<Employee> ().ToTable ( "Employee" );
+        }
     }
 }
